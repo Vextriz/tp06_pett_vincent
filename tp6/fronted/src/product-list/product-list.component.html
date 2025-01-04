@@ -1,0 +1,32 @@
+<div class="container mt-3">
+  <h2>Catalogue des Produits</h2>
+  <table class="table table-bordered mt-3">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Nom</th>
+        <th>Catégorie</th>
+        <th>Prix</th>
+        <th>Stock</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let product of products">
+        <td>{{ product.id }}</td>
+        <td>{{ product.name }}</td>
+        <td>{{ product.category }}</td>
+        <td>{{ product.stock }}</td>
+        <td>
+          <button
+            class="btn btn-primary"
+            (click)="addToCart(product)"
+            [disabled]="product.stock === 0"
+          >
+            Ajouter au panier
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
